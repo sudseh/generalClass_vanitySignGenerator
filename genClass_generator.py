@@ -108,7 +108,6 @@ def generate_callsigns():
             if re.match(regex, invalid):
                 invalidSigns.append(invalid)
 
-    print(invalidSigns)
     callsigns = list(set(callsigns) - set(invalidSigns))
 
     # finally return the list of valid vanity callsigns
@@ -136,4 +135,4 @@ if __name__ == '__main__':
     url = sanitizeInput(sys.argv)
     get_list(url)
     vanityCall = generate_callsigns()
-    print(available_callsigns(vanityCall))
+    print(sorted(available_callsigns(vanityCall), key=str.lower))
